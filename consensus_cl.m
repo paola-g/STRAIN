@@ -1,7 +1,6 @@
 % cls: clustering matrix n_points x n_clusterings
 % k: number of cluster in the final solution
-% linkageMethod: as in matlab linkage function ('single', 'complete',
-% 'average', ...)
+% linkageMethod: as in matlab linkage function ('single', 'complete', 'average', ...)
 %
 function [cl,Z,M] = consensus_cl(cls,k,linkageMethod) 
 [m,n] = size(cls);

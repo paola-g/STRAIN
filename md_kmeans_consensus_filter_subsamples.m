@@ -1,6 +1,5 @@
-load multi_disease_DMN_ext_fix 
-code = '76';
-load(sprintf('md_split_%s', code), 'train_idx');
+load multi_disease_DMN
+load md_split_train
 train_idx = train_idx + 1;
 fulldata = DMNdata';
 fulldata = fulldata(:,train_idx);

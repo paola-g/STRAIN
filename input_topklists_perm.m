@@ -15,7 +15,7 @@ control_idx = find(test_labels==1);
 sla_idx = find(test_labels==2);
 park_idx = find(test_labels==3);
 %% permutation testing
-n_perm = 2000;
+n_perm = 1000;
 perm_idx = zeros(size(test_labels,2), n_perm);
 ranks_controls = zeros(size(control_idx,2), 405, n_perm);
 ranks_sla = zeros(size(sla_idx,2), 405, n_perm);
@@ -31,7 +31,7 @@ for i=1:n_perm
     [~,ranks_sla(:,:,i),~] = perSubjectRankAbs(DMNtest(sla_idx,idxs),cl_filt(idxs),'median');
     [~,ranks_park(:,:,i),~] = perSubjectRankAbs(DMNtest(park_idx,idxs),cl_filt(idxs),'median');
 end
-save md_ext76_kmeans_f05s3_doc_permranks2000 ranks_controls ranks_sla ranks_park perm_idx
+save md_ext76_kmeans_f05s3_doc_permranks ranks_controls ranks_sla ranks_park perm_idx
 
 %% input topklists anat 
 load multi_disease_DMN_ext_fix DMNlabels
@@ -57,4 +57,4 @@ for i=1:n_perm
     [~,ranks_park(:,:,i)] = sort(abs(medians_park),2,'descend');
     [~,ranks_ctrl(:,:,i)] = sort(abs(medians_ctrl),2,'descend');
 end
-save md_anatvoi_permranks2000 ranks_sla ranks_park ranks_ctrl perm_idx
+save md_anatvoi_permranks ranks_sla ranks_park ranks_ctrl perm_idx

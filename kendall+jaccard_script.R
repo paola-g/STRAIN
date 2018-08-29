@@ -71,7 +71,7 @@ for (i in 1:length(files)){
   kdists_cl[i,3] = Kendall2Lists.c(rank_s, rank_p, n_s, n_p,nspace)
 
 }
-conn0 <- readMat('md_ext76_kmeans_f05s3_toprank_d8-10-8v10_abs_median.mat')
+conn0 <- readMat('md_cluster_abs_median_topranks_d8-10-8v10.mat')
 controls <- conn1$topkcontrols
 sla <- conn1$topksla
 park <- conn1$topkpark
@@ -136,40 +136,3 @@ for (i in 1:nfiles){
   }
 }
 writeMat('jdists_an_smp', jdists_an_smp=jdists_an_smp)
-
-# PERM JACCARD
-# anatvoi
-files = list.files(pattern='anatvoi_toprank_d8-8-8v10_perm.*.mat')
-nspace = 90
-nfiles = length(files)
-jdists_an_perm = matrix(0,nfiles*(nfiles-1)/2,3)
-
-index = 0
-for (i in 1:nfiles){
-  for (j in 1:nfiles){
-    if (i<j){
-      print(index)
-      conn_i <- readMat(files[i])
-      conn_j <- readMat(files[j])
-      controls_i <- conn_i$topkcontrols
-      sla_i <- conn_i$topksla
-      park_i <- conn_i$topkpark
-      controls_j <- conn_j$topkcontrols
-      sla_j <- conn_j$topksla
-      park_j <- conn_j$topkpark
-      
-      # 1: Ctrl, 2: Sla, 3: Park
-      I <- length(intersect(controls_i,controls_j))
-      S <- I/(length(controls_i)+length(controls_j)-I)
-      jdists_an_perm[index,1] = S
-      I <- length(intersect(sla_i,sla_j))
-      S <- I/(length(sla_i)+length(sla_j)-I)
-      jdists_an_perm[index,2] = S
-      I <- length(intersect(park_i,park_j))
-      S <- I/(length(park_i)+length(park_j)-I)
-      jdists_an_perm[index,3] = S
-      index = index+1
-    }
-  }
-}
-writeMat('jdists_an_perm', jdists_an_perm=jdists_an_perm)

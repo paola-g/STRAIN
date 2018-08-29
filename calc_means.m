@@ -1,6 +1,6 @@
-% data matrix n_points x n_features
-% c clustering labels (npoints x 1) 
-% meanmds vector containing clusters means
+% data: matrix n_points x n_features
+% c: clustering labels (npoints x 1) 
+% meanmds: vector containing clusters means
 
 
 function [meanmds] = calc_means(data,c)

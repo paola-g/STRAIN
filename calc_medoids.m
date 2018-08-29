@@ -1,10 +1,9 @@
-% corrmat full correlation matrix (input of kmeans)
-% c clustering labels (npoints x 1)  
-% n number of clusters
-% method either 'mean' or 'sum'
-% mds vector containing medoids indices
-% meancorr vector containing mean correlation (or sum of correlations) of
-% medoids with cluster points
+% corrmat: full correlation matrix (input of kmeans)
+% c: clustering labels (npoints x 1)  
+% n: number of clusters
+% method: either 'mean' or 'sum'
+% mds: vector containing medoids indices
+% meancorr: vector containing mean correlation (or sum of correlations) of medoids with cluster points
 
 
 function [mds, meancorr] = calc_medoids(corrmat,c,method)
