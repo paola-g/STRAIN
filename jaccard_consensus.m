@@ -18,9 +18,9 @@ for k = 1:nfiles
         cl_controls_j = cl_u_j(topkcontrols);
         cl_sla_j = cl_u_j(topksla);
         cl_park_j = cl_u_j(topkpark);
-        vox_controls_j = find(ismember(cl_filt_j,cl_controls_j));
-        vox_sla_j = find(ismember(cl_filt_j,cl_sla_j));
-        vox_park_j= find(ismember(cl_filt_j,cl_park_j));
+        vox_controls_j = filter_idx(find(ismember(cl_filt_j,cl_controls_j)));
+        vox_sla_j = filter_idx(find(ismember(cl_filt_j,cl_sla_j)));
+        vox_park_j= filter_idx(find(ismember(cl_filt_j,cl_park_j)));
 
         baseFileName_k = matFiles(k).name;
         fullFileName_k = fullfile(myfolder, baseFileName_k);
@@ -32,9 +32,9 @@ for k = 1:nfiles
         cl_controls_k = cl_u_k(topkcontrols);
         cl_sla_k = cl_u_k(topksla);
         cl_park_k = cl_u_k(topkpark);
-        vox_controls_k = find(ismember(cl_filt_k,cl_controls_k));
-        vox_sla_k = find(ismember(cl_filt_k,cl_sla_k));
-        vox_park_k = find(ismember(cl_filt_k,cl_park_k));
+        vox_controls_k = filter_idx(find(ismember(cl_filt_k,cl_controls_k)));
+        vox_sla_k = filter_idx(find(ismember(cl_filt_k,cl_sla_k)));
+        vox_park_k = filter_idx(find(ismember(cl_filt_k,cl_park_k)));
 
         % 1:controls 2:sla 3:park
         jdists_cl_smp(index, 1) = jaccard(vox_controls_j, vox_controls_k);
