@@ -5,5 +5,5 @@ STochastic Rank Aggregation for the Identification of Neuromarkers
 
 Required libraries:
 - R: R.matlab, TopKLists, parallel
-- python: numpy
+- python: numpy, scipy, sklearn
 - matlab: NeuroElf_v09c
