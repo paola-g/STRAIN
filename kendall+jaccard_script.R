@@ -102,7 +102,7 @@ writeMat("kendall_perm.mat", CtrlSla_an=CtrlSla_an, CtrlPark_an=CtrlPark_an,
 
 # SUBSAMPLES JACCARD
 # anatvoi
-files = list.files(pattern='anatvoi_toprank_d8-8-8v10_smp_norep.*.mat')
+files = list.files(pattern='anatvoi_toprank_d8-8-8v10_smp.*.mat')
 nspace = 90
 nfiles = length(files)
 jdists_an_smp = matrix(0,nfiles*(nfiles-1)/2,3)
