@@ -53,9 +53,7 @@ end
 load medianvois vois
 topkspace_a = 1:90;
 
-temp = xff('TEMP.vmp');
-mask = xff('wholebrain.msk');
-mask4mm = resampleVolume(mask.Mask, 0.5, 3);
+load mask4mm
 maskIdx = find(mask4mm>0.9);
 
 myfolder = '.';
